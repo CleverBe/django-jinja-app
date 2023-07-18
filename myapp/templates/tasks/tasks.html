@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <header class="mb-2">
+      <h1 class="display-4">Listado de tareas</h1>
+      <a href="{% url 'newTask' %}" class="btn btn-secondary"
+        >Crear nueva tarea</a
+      >
+    </header>
+    <ul class="list-group">
+      {% for task in tasks %}
+      <li class="list-group-item list-group-item-info">
+        <div class="d-flex justify-content-between">
+          <a href="{% url 'task' task.id %}">
+            <h3>Title: {{task.title}}</h3>
+          </a>
+          <p>{%if task.done == False%} 🕑 {%else%} ✅ {%endif%}</p>
+        </div>
+        <p>Description: {{task.description}}</p>
+        <p>Project: {{task.project.name}}</p>
+        <p>Usuario: {{task.user.username}}</p>
+        {%if task.date_completed%}
+        <p>Date: {{task.date_completed|date:'M j Y:i'}}</p>
+        {%endif%}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

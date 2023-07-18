@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <header class="mb-2">
+      <h1 class="display-4">Listado de proyectos</h1>
+      <a href="{% url 'newProject' %}" class="btn btn-secondary"
+        >Crear nueva tarea</a
+      >
+    </header>
+    <ul class="list-group">
+      {% for project in projects %}
+      <li class="list-group-item list-group-item-info">
+        <a href="{% url 'project' project.id %}">
+          <h3>Name: {{project.name}}</h3>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

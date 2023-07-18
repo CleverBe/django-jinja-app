@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<h1 class="display-5">Detalle del proyecto: {{ project.name }}</h1>
+
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <h3>Tareas del proyecto</h3>
+
+    {% for task in tasks %}
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">{{task.title}}</li>
+    </ul>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
