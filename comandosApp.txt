@@ -30,21 +30,8 @@ python manage.py makemigrations
 python manage.py migrate
 
 python manage.py shell
-from myapp.models import Project, Task
-p=Project(name="nuevo proyecto")
-p.save()
-Project.objects.all()
-p=Project.objects.get(id=1)
-p.task_set.all()
-p.task_set.create(title="probar ide",description="desarrollar")
-p.task_set.get(id=1)
-Project.objects.filter(name__startswith="aplication")
 
 python manage.py createsuperuser
 
-clever
-clever123
-
-borrar migraciones y db.sqlite3
-
+para eliminar migraciones, borrar archivos migrations y db.sqlite3
 
